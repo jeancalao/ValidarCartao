@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Cartão de Crédito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 60px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: blue; /* Adiciona a cor azul ao texto do resultado */
+        }
+    </style>
+</head>
+<body>
+    <h1>Validação de Cartão de Crédito</h1>
+    <form id="cartaoForm">
+        <label for="digitos1">Cartão de Crédito</label>
+        <div class="input-group">
+            <input type="text" id="digitos1" maxlength="4" required>
+            <input type="text" id="digitos2" maxlength="4" required>
+            <input type="text" id="digitos3" maxlength="4" required>
+            <input type="text" id="digitos4" maxlength="4" required>
+        </div>
+        <button type="submit">Validar Cartão</button>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        document.getElementById('cartaoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const digitos1 = document.getElementById('digitos1').value;
+            const digitos2 = document.getElementById('digitos2').value;
+            const digitos3 = document.getElementById('digitos3').value;
+            const digitos4 = document.getElementById('digitos4').value;
+            const numeroCartao = digitos1 + digitos2 + digitos3 + digitos4;
+
+            fetch('/validar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ numeroCartao })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultado').textContent = data.resultado;
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+    </script>
+</body>
+</html>
