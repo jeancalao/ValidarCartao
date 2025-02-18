@@ -11,13 +11,7 @@ Este projeto é uma aplicação web simples para validar números de cartões de
 - **JavaScript**: Para a lógica de validação no lado do cliente.
 
 ## Estrutura do Projeto
-ValidarCartao/ 
-├── src/ │ 
-   ├── index.js 
-   │ └── public/ 
-   │ └── index.html 
-├── package.json 
-└── node_modules/
+![estrutura](image.png)
 
 
 ## Instalação
@@ -26,12 +20,19 @@ ValidarCartao/
    git clone https://github.com/seu-usuario/ValidarCartao.git
    cd ValidarCartao
    ```
+
 2. **Instale as dependências
+   
    ```
     npm install
    ```
+
 ## Execução
    ```
    node src/index.js
-   fr```
+   ```
 acesse a aplicação em http://localhost:3000
+
+## Exemplo da tela
+
+![Tela Exemplo](assets/image.png)
