@@ -36,3 +36,5 @@ acesse a aplicação em http://localhost:3000
 ## Exemplo da tela
 
 ![Tela Exemplo](assets/image.png)
+
+contato Linkedin: [Jean Marcelo CaLão](http://linkedin/in/jeancalao) 
