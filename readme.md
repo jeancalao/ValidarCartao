@@ -37,4 +37,4 @@ acesse a aplicação em http://localhost:3000
 
 ![Tela Exemplo](assets/image.png)
 
-contato Linkedin: [Jean Marcelo CaLão](http://linkedin/in/jeancalao) 
+contato Linkedin: [Jean Marcelo CaLão](http://linkedin.com/in/jeancalao) 
